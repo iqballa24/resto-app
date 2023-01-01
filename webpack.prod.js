@@ -1,6 +1,6 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const path = require('path');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
@@ -30,4 +30,12 @@ module.exports = merge(common, {
       filename: 'style/style-[contenthash].css',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+      },
+    ],
+  },
 });

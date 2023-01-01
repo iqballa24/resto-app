@@ -1,0 +1,26 @@
+.benefit-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 24px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 315px;
+  background-color: white;
+  @include padding-x(26px);
+  @include padding-y(32px);
+
+  img {
+    width: 100%;
+    max-width: 80px;
+  }
+
+  & > &__text {
+    h1 {
+      @include font-size(lg);
+    }
+    p {
+      @include font-size(base);
+    }
+  }
+}

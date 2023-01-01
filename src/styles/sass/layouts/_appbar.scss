@@ -1,0 +1,139 @@
+.app-bar {
+  @include wrapper;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+
+  .app-bar__logo {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    align-items: center;
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    & > img {
+      width: 100%;
+      max-width: 45px;
+    }
+  }
+
+  .app-bar__nav {
+    position: absolute;
+    text-align: center;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 15rem;
+    background-color: $color-dark-black;
+    visibility: hidden;
+    transition: all 0.5s ease;
+
+    &.show {
+      right: 0;
+      visibility: visible;
+    }
+
+    .app-bar__nav-menus {
+      display: flex;
+      flex-direction: column;
+      padding-top: 5rem;
+      list-style: none;
+      @include font-size(base);
+
+      & > .nav-item {
+        width: 100%;
+        cursor: pointer;
+        height: fit-content;
+        padding: 1rem 2.5rem;
+
+        &:hover,
+        &:focus,
+        &.active {
+          background-color: $color-dark-orange;
+        }
+
+        a {
+          list-style: none;
+          text-decoration: none;
+          color: white;
+          @include font-size(lg);
+        }
+      }
+    }
+
+    .app-bar__nav-cancel {
+      position: absolute;
+      padding: 0.6rem 1rem;
+      top: 15px;
+      left: 15px;
+      color: white;
+      cursor: pointer;
+
+      &:hover > span {
+        color: $color-red;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      position: relative;
+      max-width: fit-content;
+      background-color: transparent;
+      height: auto;
+      visibility: visible;
+      right: 0;
+
+      .app-bar__nav-menus {
+        padding: 0;
+        flex-direction: row;
+
+        & > .nav-item {
+          padding: 0;
+          
+          &:hover,
+          &:focus,
+          &.active {
+            background-color: transparent;
+
+            & > a {
+              border-bottom: 1px solid $color-dark-orange;
+              color: $color-dark-orange;
+            }
+          }
+          a {
+            color: white;
+            padding: 1.8rem 2rem;
+          }
+        }
+      }
+
+      .app-bar__nav-cancel {
+        display: none;
+      }
+    }
+  }
+
+  .app-bar__nav-toggle {
+    border: 1px solid $color-light-gray;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    @include font-size(lg);
+
+    &:hover {
+      color: $color-dark-orange;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+}
