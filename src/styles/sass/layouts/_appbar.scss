@@ -49,10 +49,9 @@
       @include font-size(base);
 
       & > .nav-item {
+        display: flex;
         width: 100%;
         cursor: pointer;
-        height: fit-content;
-        padding: 1rem 2.5rem;
 
         &:hover,
         &:focus,
@@ -61,6 +60,8 @@
         }
 
         a {
+          width: 100%;
+          padding: 1rem 1.4rem;
           list-style: none;
           text-decoration: none;
           color: white;
@@ -71,10 +72,11 @@
 
     .app-bar__nav-cancel {
       position: absolute;
-      padding: 0.6rem 1rem;
       top: 15px;
       left: 15px;
       color: white;
+      min-height: 44px;
+      min-width: 44px;
       cursor: pointer;
 
       &:hover > span {
@@ -96,7 +98,7 @@
 
         & > .nav-item {
           padding: 0;
-          
+
           &:hover,
           &:focus,
           &.active {
@@ -109,7 +111,7 @@
           }
           a {
             color: white;
-            padding: 1.8rem 2rem;
+            padding: 1.6rem 1.8rem;
           }
         }
       }
@@ -125,7 +127,8 @@
     border-radius: 4px;
     cursor: pointer;
     color: white;
-    padding: 0.4rem 0.8rem;
+    min-height: 44px;
+    min-width: 44px;
     @include font-size(lg);
 
     &:hover {
