@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Free restaurants catalogue for you">
+    <meta name="theme-color" content="#D9543D"/>
+
+    <link rel="manifest" href="./app.webmanifest">
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
     <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
     <title>Ngemilkuy.</title>
   </head>
@@ -31,92 +36,15 @@
           <span>&#10006;</span>
         </button>
         <ul class="app-bar__nav-menus">
-          <li class="nav-item"><a href="./index.html">Home</a></li>
-          <li class="nav-item"><a href="#">Favorite</a></li>
+          <li class="nav-item"><a href="#/">Home</a></li>
+          <li class="nav-item"><a href="#/favorite">Favorite</a></li>
           <li class="nav-item">
             <a href="https://github.com/iqballa24" target="_blank">About</a>
           </li>
         </ul>
       </nav>
     </header>
-    <main>
-      <section class="hero-section">
-        <div class="hero-section__title">
-          <h1 class="logo" tabindex="0">
-            Find the best restaurant with Ngemil<span>Kuy.</span>
-          </h1>
-          <a href="#restaurant-section" class="button button-primary"
-            >Get Started</a
-          >
-        </div>
-        <img src="./images/wave.svg" class="hero-section__wave" alt="" />
-      </section>
-      <section id="main-content" class="feature-section">
-        <div class="feature-section__text">
-          <h1 class="logo" tabindex="0">About Ngemil<span>Kuy.</span></h1>
-          <p tabindex="0">
-            NgemilKuy is a website providing information about all restaurants
-            in Indonesia. With a recommendation system, it can make it easier
-            for you to choose the closest and most suitable restaurant. So you
-            don't have to spend a lot of time just to find the restaurant.
-          </p>
-        </div>
-        <div class="feature-section__img">
-          <img src="./images/img-about.jpg" alt="" />
-        </div>
-      </section>
-      <section class="benefit-section">
-        <div class="benefit-section__title">
-          <span tabindex="0">Special benefit for you</span>
-          <h1 tabindex="0">Why Should Choose Us?</h1>
-        </div>
-        <ul class="benefit-section__box">
-          <li class="benefit-box">
-            <img src="./icon-eat.svg" alt="come and eat icon" />
-            <div class="benefit-box__text">
-              <h1 tabindex="0">Come and eat</h1>
-              <p tabindex="0">
-                Get your own table quickly & without waiting in line
-              </p>
-            </div>
-          </li>
-          <li class="benefit-box">
-            <img src="./icon-fee.svg" alt="No Extra Fee icon" />
-            <div class="benefit-box__text">
-              <h1 tabindex="0">No Extra Fee</h1>
-              <p tabindex="0">
-                Get tax free if you want to order food and make a reservation
-              </p>
-            </div>
-          </li>
-          <li class="benefit-box">
-            <img src="./icon-clean.svg" alt="Guaranteed Cleanliness icon" />
-            <div class="benefit-box__text">
-              <h1 tabindex="0">Guaranteed Cleanliness</h1>
-              <p tabindex="0">
-                We ensure the cleanliness of the place as well as the food
-              </p>
-            </div>
-          </li>
-          <li class="benefit-box">
-            <img src="./icon-discount.svg" alt="Extra Discounts icon" />
-            <div class="benefit-box__text">
-              <h1 tabindex="0">Extra Discounts</h1>
-              <p tabindex="0">
-                Get your special discount by using our reservation
-              </p>
-            </div>
-          </li>
-        </ul>
-      </section>
-      <section id="restaurant-section" class="restaurants-section">
-        <div class="restaurants-section__title">
-          <span tabindex="0">Restaurants Based By City</span>
-          <h1 tabindex="0">Restaurants Near your</h1>
-        </div>
-        <ul id="restaurants-list" class="restaurants-section__list"></ul>
-      </section>
-    </main>
+    <main id="main-content"></main>
     <footer class="footer">
       <div class="footer-section__info">
         <div class="info-brand">

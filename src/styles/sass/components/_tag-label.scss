@@ -1,0 +1,8 @@
+label {
+  background-color: $color-dark-orange;
+  border-radius: 16px;
+  font-size: 14px;
+  color: white;
+  @include padding-y(5px);
+  @include padding-x(15px)
+}

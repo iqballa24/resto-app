@@ -1,0 +1,15 @@
+title-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  span {
+    text-transform: capitalize;
+    color: $color-dark-orange;
+    @include font-size(base);
+  }
+
+  h2 {
+    @include font-size(3xl);
+  }
+}

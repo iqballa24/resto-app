@@ -11,6 +11,11 @@
 @import './components/button';
 @import './components/benefit-box';
 @import './components/restaurant-item';
+@import './components/title-text';
+@import './components/banner-img';
+@import './components/tag-label';
+@import './components/list-menu';
+@import './components/reviews';
 
 // Layouts
 @import './layouts/appbar';
@@ -18,3 +23,4 @@
 
 // Pages
 @import './pages/homepage';
+@import './pages/detail';

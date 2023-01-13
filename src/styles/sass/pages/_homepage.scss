@@ -121,15 +121,6 @@
       @include font-size(3xl);
     }
   }
-
-  & > &__box {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
-  }
 }
 
 .restaurants-section {
@@ -153,15 +144,5 @@
     h1 {
       @include font-size(3xl);
     }
-  }
-
-  & > &__list {
-    display: flex;
-    flex-direction: row;
-    column-gap: 25px;
-    row-gap: 35px;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style: none;
   }
 }
