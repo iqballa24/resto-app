@@ -1,12 +1,25 @@
+import '../../components/UI/banner-img';
+import '../../components/restaurant-list';
+
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+
 const Favorite = {
   async render() {
     return `
-          <h2>Favorite Page</h2>
-        `;
+      <banner-img></banner-img>
+      <section class="favorite-section">
+        <restaurant-list></restaurant-list>
+      </section>
+    `;
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const bannerElement = document.querySelector('banner-img');
+    bannerElement.banner = 'Favorite';
+
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    const restaurantsContainer = document.querySelector('restaurant-list');
+    restaurantsContainer.restaurants = restaurants;
   },
 };
 

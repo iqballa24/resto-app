@@ -1,7 +1,9 @@
 import CONFIG from '../../global/config';
+
 import '../UI/title-text';
 import '../UI/list-menu';
 import '../reviews-list';
+import '../reviews-form';
 
 class DetailSection extends HTMLElement {
   set restaurant(restaurant) {
@@ -22,7 +24,6 @@ class DetailSection extends HTMLElement {
     } = this._restaurant;
 
     this.innerHTML = `
-        <section id="detail-section" class="detail-section">
           <div class="detail-section__info">
                 <div class="img">
                     <img src="${
@@ -48,16 +49,8 @@ class DetailSection extends HTMLElement {
             <title-text title="All Reviews from customers" text="Review customer"></title-text>
             <div class="reviews-customers">
               <reviews-list></reviews-list>
-              <div class="reviews-form">
-                <h3>Add review</h3>
-                <form>
-                  <input type="text" placeholder="Your name"/>
-                  <textarea rows="4" placeholder="Your review"></textarea>
-                  <button type="submit" class="button button-primary">Send</button>
-                </form>
-              </div>
+              <reviews-form></reviews-form>
           </div>
-        </section>
     `;
 
     const menuListElement = document.querySelector('list-menu');

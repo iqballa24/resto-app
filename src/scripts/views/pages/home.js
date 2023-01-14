@@ -10,7 +10,7 @@ const Home = {
   async render() {
     return `
         <hero-section></hero-section>
-        <feature-section tester='test'></feature-section>
+        <feature-section></feature-section>
         <section class="benefit-section">
           <title-text title="Why Should Choose Us?" text="Special benefit for you"></title-text>
           <benefit-list></benefit-list>

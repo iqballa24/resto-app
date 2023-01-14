@@ -11,6 +11,18 @@ class RestaurantsSource {
     const response = await fetch(API_ENDPOINT.DETAIL(id));
     return response.json();
   }
+
+  static async addNewReview(data) {
+    const response = await fetch(API_ENDPOINT.ADD_REVIEW, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    return response.json();
+  }
 }
 
 export default RestaurantsSource;

@@ -16,6 +16,8 @@
 @import './components/tag-label';
 @import './components/list-menu';
 @import './components/reviews';
+@import './components/like';
+@import './components/reviews-form';
 
 // Layouts
 @import './layouts/appbar';
@@ -24,3 +26,4 @@
 // Pages
 @import './pages/homepage';
 @import './pages/detail';
+@import './pages/favorite';

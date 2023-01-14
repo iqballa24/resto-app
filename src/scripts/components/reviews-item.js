@@ -2,7 +2,6 @@ class ReviewsItem extends HTMLElement {
   set review(review) {
     this._review = review;
     this.render();
-    console.log(review);
   }
 
   render() {

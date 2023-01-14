@@ -1,0 +1,4 @@
+.favorite-section {
+  @include wrapper;
+  @include padding-y(8rem);
+}
