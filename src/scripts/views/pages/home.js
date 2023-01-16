@@ -5,6 +5,7 @@ import '../../components/UI/title-text';
 
 import RestaurantsSource from '../../data/restaurants-source';
 import benefits from '../../data/benefit';
+import LoaderInitiator from '../../utils/loader-initiator';
 
 const Home = {
   async render() {
@@ -23,12 +24,31 @@ const Home = {
   },
 
   async afterRender() {
+    const Loader = new LoaderInitiator({
+      loaderContainer: document.querySelector('loader-bar'),
+    });
+
     const benefitsContainer = document.querySelector('benefit-list');
     benefitsContainer.benefits = benefits;
 
-    const data = await RestaurantsSource.listRestaurants();
+    let data = null;
+    try {
+      Loader.show();
+      const res = await RestaurantsSource.listRestaurants();
+
+      if (res.error) {
+        throw res;
+      }
+
+      data = res;
+    } catch (err) {
+      data = err;
+    } finally {
+      Loader.hide();
+    }
+
     const restaurantsContainer = document.querySelector('restaurant-list');
-    restaurantsContainer.restaurants = data.restaurants;
+    restaurantsContainer.restaurants = data;
   },
 };
 

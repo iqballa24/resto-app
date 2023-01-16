@@ -6,9 +6,9 @@ class ReviewsItem extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <span class="reviews-item__name">${this._review.name}</span>
-        <span class="reviews-item__review">${this._review.review}</span>
-        <time>${this._review.date}</time>
+        <span class="reviews-item__name" tabIndex="0">${this._review.name}</span>
+        <span class="reviews-item__review" tabIndex="0">${this._review.review}</span>
+        <time tabIndex="0">${this._review.date}</time>
       `;
   }
 }

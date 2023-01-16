@@ -4,6 +4,8 @@ import '../../components/detail/detail-section';
 import UrlParser from '../../routes/url-parser';
 import RestaurantsSource from '../../data/restaurants-source';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
+import FormInitiator from '../../utils/form-initiator';
+import LoaderInitiator from '../../utils/loader-initiator';
 
 const Detail = {
   async render() {
@@ -15,14 +17,34 @@ const Detail = {
   },
 
   async afterRender() {
+    scroll(0, 0);
+    const Loader = new LoaderInitiator({
+      loaderContainer: document.querySelector('loader-bar'),
+    });
+
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantsSource.detailRestaurant(url.id);
+    let restaurant = null;
+
+    try {
+      Loader.show();
+      const res = await RestaurantsSource.detailRestaurant(url.id);
+
+      if (res.error) {
+        throw res;
+      }
+
+      restaurant = res;
+    } catch (err) {
+      restaurant = err;
+    } finally {
+      Loader.hide();
+    }
 
     const bannerElement = document.querySelector('banner-img');
-    bannerElement.banner = `Detail / ${restaurant.restaurant.name ?? ''}`;
+    bannerElement.banner = `Detail / ${restaurant.restaurant?.name ?? ''}`;
 
     const detailElement = document.querySelector('detail-section');
-    detailElement.restaurant = restaurant.restaurant;
+    detailElement.restaurant = restaurant;
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
@@ -35,10 +57,10 @@ const Detail = {
       },
     });
 
-    const reviewsForm = document.querySelector('#reviews-form');
-    reviewsForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      console.log(e.target.review.value);
+    FormInitiator.init({
+      id: restaurant.restaurant.id,
+      formContainer: document.querySelector('#reviews-form'),
+      button: document.querySelector('#btn-submit'),
     });
   },
 };

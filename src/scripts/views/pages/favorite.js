@@ -17,9 +17,22 @@ const Favorite = {
     const bannerElement = document.querySelector('banner-img');
     bannerElement.banner = 'Favorite';
 
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
+    let data = null;
+
+    try {
+      const res = await FavoriteRestaurantIdb.getAllRestaurants();
+
+      if (res.error) {
+        throw res;
+      }
+
+      data = { error: false, restaurants: res };
+    } catch (err) {
+      data = { error: true, message: 'Failed to fetch data' };
+    }
+
     const restaurantsContainer = document.querySelector('restaurant-list');
-    restaurantsContainer.restaurants = restaurants;
+    restaurantsContainer.restaurants = data;
   },
 };
 

@@ -9,7 +9,7 @@ class ReviewsForm extends HTMLElement {
         <form id="reviews-form">
             <input name="name" type="text" placeholder="Your name" required/>
             <textarea name="review" rows="4" placeholder="Your review" required></textarea>
-            <button type="submit" class="button button-primary">Send</button>
+            <button id="btn-submit" type="submit" class="button button-primary">Send</button>
         </form>
       `;
   }

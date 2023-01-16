@@ -25,4 +25,15 @@
       background-color: transparent;
     }
   }
+
+  &-secondary {
+    color: white;
+    background-color: transparent;
+    border: 1px solid $color-dark-orange;
+
+    &:hover {
+      letter-spacing: 0.1rem;
+      background-color: $color-dark-orange;
+    }
+  }
 }

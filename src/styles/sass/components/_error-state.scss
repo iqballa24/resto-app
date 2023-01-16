@@ -1,0 +1,23 @@
+error-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  @include padding-y(2rem);
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    @include font-size(2xl);
+  }
+
+  p {
+    @include font-size(lg);
+  }
+}

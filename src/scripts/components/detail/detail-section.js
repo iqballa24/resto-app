@@ -2,13 +2,19 @@ import CONFIG from '../../global/config';
 
 import '../UI/title-text';
 import '../UI/list-menu';
+import '../UI/error-state';
 import '../reviews-list';
 import '../reviews-form';
 
 class DetailSection extends HTMLElement {
   set restaurant(restaurant) {
     this._restaurant = restaurant;
-    this.render();
+
+    if (restaurant.error) {
+      this.error();
+    } else {
+      this.render();
+    }
   }
 
   render() {
@@ -21,7 +27,7 @@ class DetailSection extends HTMLElement {
       description,
       menus,
       customerReviews,
-    } = this._restaurant;
+    } = this._restaurant.restaurant;
 
     this.innerHTML = `
           <div class="detail-section__info">
@@ -58,6 +64,12 @@ class DetailSection extends HTMLElement {
 
     const reviewsListElement = document.querySelector('reviews-list');
     reviewsListElement.reviews = customerReviews;
+  }
+
+  error() {
+    const { message } = this._restaurant;
+
+    this.innerHTML = `<error-state text="${message}"></error-state>`;
   }
 }
 

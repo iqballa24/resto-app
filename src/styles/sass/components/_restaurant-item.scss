@@ -35,6 +35,7 @@ restaurant-list {
     left: 50%;
     background-color: white;
     border-radius: 12px;
+    text-decoration: none;
     transform: translateX(-50%);
     @include padding-y(15px);
     @include padding-x(20px);
@@ -44,13 +45,9 @@ restaurant-list {
     }
 
     h1 {
+      display: flex;
       cursor: pointer;
       @include font-size(base);
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
     }
   }
 }

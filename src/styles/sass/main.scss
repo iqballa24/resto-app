@@ -18,6 +18,9 @@
 @import './components/reviews';
 @import './components/like';
 @import './components/reviews-form';
+@import './components/toast';
+@import './components/error-state';
+@import './components/loader';
 
 // Layouts
 @import './layouts/appbar';
@@ -27,3 +30,4 @@
 @import './pages/homepage';
 @import './pages/detail';
 @import './pages/favorite';
+@import './pages/404';

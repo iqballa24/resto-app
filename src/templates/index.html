@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Free restaurants catalogue for you">
-    <meta name="theme-color" content="#D9543D"/>
+    <meta name="description" content="Free restaurants catalogue for you" />
+    <meta name="theme-color" content="#D9543D" />
 
-    <link rel="manifest" href="./app.webmanifest">
-    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+    <link rel="manifest" href="./app.webmanifest" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
     <link rel="icon" type="image/svg+xml" href="./images/logo.svg" />
 
     <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
     <title>Ngemilkuy.</title>
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#/main-content" class="skip-link">Skip to content</a>
     <header id="app-bar" class="app-bar">
       <div class="app-bar__logo">
         <img src="./images/logo.svg" alt="logo brand" />
@@ -46,15 +46,25 @@
         </ul>
       </nav>
     </header>
-    <main id="main-content"></main>
+    <loader-bar></loader-bar>
+    <toast-bar></toast-bar>
+    <main id="main-content" tabindex="-1"></main>
     <footer class="footer">
       <div class="footer-section__info">
         <div class="info-brand">
           <h1 class="logo" tabindex="0">Ngemil<span>Kuy.</span></h1>
           <p tabindex="0">
             NgemilKuy is a website providing information about all restaurants
-            in Indonesia.
+            in Indonesia
           </p>
+          <span
+            >Illustration by
+            <a href="https://icons8.com/" style="color: white" target="_blank"
+              >icons8.com</a
+            > & <a href="https://www.freepik.com/" style="color: white" target="_blank"
+            >freepik.com</a
+          ></span
+          >
         </div>
         <div class="info-contact">
           <h1 tabindex="0">Getting touch</h1>

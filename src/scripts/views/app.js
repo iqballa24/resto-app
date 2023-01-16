@@ -1,6 +1,7 @@
 import DrawerInitiator from '../utils/drawer-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
+import NotFound from './pages/404';
 
 class app {
   constructor({
@@ -25,8 +26,19 @@ class app {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+
+    try {
+      this._content.innerHTML = await page.render();
+      await page.afterRender();
+    } catch (err) {
+      this._content.innerHTML = await NotFound.render();
+    }
+
+    const skipLinkElement = document.querySelector('.skip-link');
+    skipLinkElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector('#main-content').focus();
+    });
   }
 }
 
