@@ -29,23 +29,29 @@
     text-align: center;
     height: 100vh;
     top: 0;
-    right: -100%;
-    width: 100%;
+    left: 0;
+    width: 0%;
     max-width: 15rem;
     background-color: $color-dark-black;
     visibility: hidden;
     transition: all 0.5s ease;
 
     &.show {
-      right: 0;
+      width: 100%;
       visibility: visible;
+
+      .app-bar__nav-menus {
+        opacity: 1;
+      }
     }
 
     .app-bar__nav-menus {
       display: flex;
+      opacity: 0;
       flex-direction: column;
       padding-top: 5rem;
       list-style: none;
+      transition: all 0.3s ease;
       @include font-size(base);
 
       & > .nav-item {
@@ -91,8 +97,10 @@
       height: auto;
       visibility: visible;
       right: 0;
+      width: 100%;
 
       .app-bar__nav-menus {
+        opacity: 1;
         padding: 0;
         flex-direction: row;
 

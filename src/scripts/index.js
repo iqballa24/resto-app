@@ -14,6 +14,7 @@ const app = new App({
 });
 
 window.addEventListener('hashchange', () => {
+  document.querySelector('#nav-menu').classList.remove('show');
   app.renderPage();
 });
 

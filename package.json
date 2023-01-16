@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "build-serve": "npm run build && npm run serve",
+    "lint": "eslint ./src",
     "test": "karma start"
   },
   "keywords": [],
