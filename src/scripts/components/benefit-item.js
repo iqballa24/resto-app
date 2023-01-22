@@ -7,7 +7,7 @@ class BenefitItem extends HTMLElement {
   render() {
     this.innerHTML = `
         <div class="benefit-box">
-            <img src="./icon-eat.svg" alt="${this._benefit.title} icon" />
+            <img src="./images/icons/${this._benefit.img}" alt="${this._benefit.title} icon" />
             <div class="benefit-box__text">
               <h1 tabindex="0">${this._benefit.title}</h1>
               <p tabindex="0">${this._benefit.text}</p>
