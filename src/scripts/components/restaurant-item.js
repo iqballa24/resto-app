@@ -11,7 +11,7 @@ class RestaurantItem extends HTMLElement {
         <div class="restaurant-item">
             <img
             src="${CONFIG.BASE_IMAGE_URL}${this._restaurant.pictureId}"
-            alt="picture ${this._restaurant.name}"
+            alt="${this._restaurant.name}"
             />
             <a href="/#/detail/${this._restaurant.id}" class="restaurant-item__detail" title="see detail ${this._restaurant.name}">
               <div class="detail-rating" aria-label="rating ${this._restaurant.rating}">⭐️ ${this._restaurant.rating}</div>
