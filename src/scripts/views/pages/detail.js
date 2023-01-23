@@ -3,9 +3,10 @@ import '../../components/detail/detail-section';
 
 import UrlParser from '../../routes/url-parser';
 import RestaurantsSource from '../../data/restaurants-source';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import FormInitiator from '../../utils/form-initiator';
 import LoaderInitiator from '../../utils/loader-initiator';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 
 const Detail = {
   async render() {
@@ -46,8 +47,9 @@ const Detail = {
     const detailElement = document.querySelector('detail-section');
     detailElement.restaurant = restaurant;
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurant: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.restaurant.id,
         name: restaurant.restaurant.name,

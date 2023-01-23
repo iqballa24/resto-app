@@ -33,6 +33,7 @@ restaurant-list {
     bottom: 30px;
     z-index: 10;
     left: 50%;
+    color: inherit;
     background-color: white;
     border-radius: 12px;
     text-decoration: none;
@@ -40,7 +41,7 @@ restaurant-list {
     @include padding-y(15px);
     @include padding-x(20px);
 
-    .detail-rating {
+    .restaurant-rating {
       @include font-size(sm);
     }
 
