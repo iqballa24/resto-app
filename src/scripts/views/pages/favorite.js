@@ -1,38 +1,31 @@
-import '../../components/UI/banner-img';
-import '../../components/restaurant-list';
+/* eslint-disable no-new */
+/* eslint-disable array-callback-return */
+import '../../components/UI/error-state';
 
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import FavoriteRestaurantSearchView from './liked-restaurants/favorite-restaurant-search-view';
+import FavoriteRestaurantShowPresenter from './liked-restaurants/favorite-restaurant-show-presenter';
+import FavoriteRestaurantSearchPresenter from './liked-restaurants/favorite-restaurant-search-presenter';
+
+const view = new FavoriteRestaurantSearchView();
 
 const Favorite = {
   async render() {
-    return `
-      <banner-img></banner-img>
-      <section class="favorite-section">
-        <restaurant-list></restaurant-list>
-      </section>
-    `;
+    return view.getTemplate();
   },
 
   async afterRender() {
     const bannerElement = document.querySelector('banner-img');
     bannerElement.banner = 'Favorite';
 
-    let data = null;
-
-    try {
-      const res = await FavoriteRestaurantIdb.getAllRestaurants();
-
-      if (res.error) {
-        throw res;
-      }
-
-      data = { error: false, restaurants: res };
-    } catch (err) {
-      data = { error: true, message: 'Failed to fetch data' };
-    }
-
-    const restaurantsContainer = document.querySelector('restaurant-list');
-    restaurantsContainer.restaurants = data;
+    new FavoriteRestaurantShowPresenter({
+      view,
+      favoriteRestaurants: FavoriteRestaurantIdb,
+    });
+    new FavoriteRestaurantSearchPresenter({
+      view,
+      favoriteRestaurants: FavoriteRestaurantIdb,
+    });
   },
 };
 

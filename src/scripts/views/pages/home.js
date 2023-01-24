@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import '../../components/home';
 import '../../components/benefit-list';
 import '../../components/restaurant-list';
@@ -6,6 +7,7 @@ import '../../components/UI/title-text';
 import RestaurantsSource from '../../data/restaurants-source';
 import benefits from '../../data/benefit';
 import LoaderInitiator from '../../utils/loader-initiator';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -19,6 +21,7 @@ const Home = {
         <section id="restaurant-section" class="restaurants-section">
           <title-text title="Restaurants Near your" text="Restaurants Based By City"></title-text>
           <restaurant-list></restaurant-list>
+          <div id="restaurants" class="restaurants"></div>
         </section>
       `;
   },
@@ -28,10 +31,10 @@ const Home = {
       loaderContainer: document.querySelector('loader-bar'),
     });
 
+    const containerRestaurants = document.querySelector('#restaurants');
     const benefitsContainer = document.querySelector('benefit-list');
     benefitsContainer.benefits = benefits;
 
-    let data = null;
     try {
       Loader.show();
       const res = await RestaurantsSource.listRestaurants();
@@ -40,15 +43,15 @@ const Home = {
         throw res;
       }
 
-      data = res;
+      res.restaurants.map((restaurant) => {
+        containerRestaurants.innerHTML += createRestaurantItemTemplate(restaurant);
+      });
     } catch (err) {
-      data = err;
+      containerRestaurants.innerHTML = '<p>-- No restaurant data found --</p>';
+      console.log(err);
     } finally {
       Loader.hide();
     }
-
-    const restaurantsContainer = document.querySelector('restaurant-list');
-    restaurantsContainer.restaurants = data;
   },
 };
 

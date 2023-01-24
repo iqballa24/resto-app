@@ -16,7 +16,11 @@ class FeatureSection extends HTMLElement {
                 </p>
             </div>
             <div class="feature-section__img">
-                <img src="./images/img-about.jpg" alt="" />
+                <picture>
+                  <source type="image/webp" srcset="./images/img-about.webp">
+                  <source type="image/jpeg" srcset="./images/img-about.jpg">
+                  <img data-src="./images/img-about.jpg" alt="about ngemilkuy" width="100%" class="lazyload"/>
+                </picture>
             </div>
         </section>
       `;

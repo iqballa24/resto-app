@@ -5,7 +5,7 @@ class LoaderBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <img src="./images/logo.svg" alt=""/>
+        <img src="./images/logo.svg" alt="" width="60px" height="60px"/>
         <h1 class="logo">Ngemil<span>Kuy.</span></h1>
       `;
   }

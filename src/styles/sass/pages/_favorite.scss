@@ -1,4 +1,7 @@
 .favorite-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   @include wrapper;
   @include padding-y(8rem);
 }

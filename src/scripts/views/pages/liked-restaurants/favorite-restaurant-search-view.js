@@ -1,16 +1,15 @@
-import { createRestaurantItemTemplate } from '../../templates/template-creator';
-
 /* eslint-disable class-methods-use-this */
+import { createRestaurantItemTemplate } from '../../templates/template-creator';
+import '../../../components/UI/banner-img';
+
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
-        <div id="search-container">
-            <input id="query" type="text">
-            <h2 class="content__heading">Your liked restaurant</h2>
-            <div class="result-container">
-              <div id="restaurants" class="restaurants"></div>
-            </div>
-        </div>
+        <banner-img></banner-img>
+        <section class="favorite-section">
+          <input id="query" type="text" class="search-bar" placeholder="Search favorite restaurants">
+          <div id="restaurants" class="restaurants"></div>
+        </section>
       `;
   }
 
@@ -28,7 +27,7 @@ class FavoriteRestaurantSearchView {
         '',
       );
     } else {
-      html = this._getEmptyMovieTemplate();
+      html = this._getEmptyRestaurantsTemplate();
     }
 
     document.getElementById('restaurants').innerHTML = html;
@@ -38,8 +37,8 @@ class FavoriteRestaurantSearchView {
       .dispatchEvent(new Event('restaurants:updated'));
   }
 
-  _getEmptyMovieTemplate() {
-    return '<div class="restaurant-item__not__found">Restaurant not found</div>';
+  _getEmptyRestaurantsTemplate() {
+    return '<div class="restaurant-item__not__found">-- No restaurant data found --</div>';
   }
 }
 

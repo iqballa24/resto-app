@@ -31,21 +31,25 @@ class DetailSection extends HTMLElement {
 
     this.innerHTML = `
           <div class="detail-section__info">
-                <div class="img">
-                    <img src="${
-  CONFIG.BASE_IMAGE_URL
-}${pictureId}" alt="${name} image" />
-                </div>
-                <div class="text">
-                <div class="categories">
-        ${categories
-    .map((category) => `<label>${category.name}</label>`)
-    .join('')}
+            <div class="img">
+                <picture>
+                  <source media="(max-width: 650px)" srcset="${CONFIG.BASE_IMAGE_URL}small/${pictureId}" class="detail-img">
+                  <source media="(max-width: 976px)" srcset="${CONFIG.BASE_IMAGE_URL}medium/${pictureId}" class="detail-img">
+                  <img
+                    data-src="${CONFIG.BASE_IMAGE_URL}large/${pictureId}"
+                    alt="${name} poster"
+                    class="detail-img lazyload"
+                    width="100%"
+                    height="100%"
+                  />
+                </picture>
             </div>
-            <h1 tabindex="0">${name}</h1>
-            <span tabindex="0">📍${address}, ${city}</span>
-            <span tabindex="0">${description}</span>
-          </div>
+            <div class="text">
+              <div class="categories">${categories.map((category) => `<label>${category.name}</label>`).join('')}</div>
+              <h1 tabindex="0" class="restaurant-title">${name}</h1>
+              <span tabindex="0">📍${address}, ${city}</span>
+              <span tabindex="0">${description}</span>
+            </div>
           </div>
           <div class="detail-section__menus">
             <title-text title="All available menus" text="Menu"></title-text>

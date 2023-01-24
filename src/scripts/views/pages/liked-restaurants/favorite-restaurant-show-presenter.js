@@ -9,8 +9,13 @@ class FavoriteRestaurantShowPresenter {
   }
 
   async _showFavoriteRestaurants() {
-    const restaurants = this._favoriteRestaurants.getAllRestaurants();
-    this._displayRestaurants(restaurants);
+    try {
+      const restaurants = await this._favoriteRestaurants.getAllRestaurants();
+      this._displayRestaurants(restaurants);
+    } catch (err) {
+      this._displayRestaurants([]);
+      console.log(err);
+    }
   }
 
   _displayRestaurants(restaurants) {

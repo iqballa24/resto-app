@@ -14,18 +14,18 @@ const createUnlikeRestaurantButtonTemplate = () => `
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
-    <img
-    src="${CONFIG.BASE_IMAGE_URL}${restaurant.pictureId}"
-    alt="${restaurant.name}"
-    />
-    <a href="/#/detail/${
-  restaurant.id
-}" class="restaurant-item__detail" title="see detail ${
-  restaurant.name || '-'
-}">
-      <div class="restaurant-rating" aria-label="rating ${restaurant.rating}">⭐️ ${
-  restaurant.rating
-}</div>
+    <picture>
+      <source media="(max-width: 650px)" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}">
+      <source media="(max-width: 976px)" srcset="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}">
+      <img
+        data-src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}"
+        alt="${restaurant.name} poster"
+        class="lazyload"
+        width="100%"
+      />
+    </picture>
+    <a href="/#/detail/${restaurant.id}" class="restaurant-item__detail" title="see detail ${restaurant.name || '-'}">
+      <div class="restaurant-rating" aria-label="rating ${restaurant.rating}">⭐️ ${restaurant.rating}</div>
       <h1 class="restaurant-title">${restaurant.name || '-'}</h1>
       <span class="restaurant-city">${restaurant.city}</span>
     </a>
