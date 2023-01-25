@@ -15,8 +15,8 @@ const createUnlikeRestaurantButtonTemplate = () => `
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
     <picture>
-      <source media="(max-width: 650px)" srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}">
-      <source media="(max-width: 976px)" srcset="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}">
+      <source media="(max-width: 650px)" data-srcset="${CONFIG.BASE_IMAGE_URL}small/${restaurant.pictureId}">
+      <source media="(max-width: 976px)" data-srcset="${CONFIG.BASE_IMAGE_URL}medium/${restaurant.pictureId}">
       <img
         data-src="${CONFIG.BASE_IMAGE_URL}large/${restaurant.pictureId}"
         alt="${restaurant.name} poster"

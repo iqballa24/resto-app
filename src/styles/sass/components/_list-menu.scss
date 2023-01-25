@@ -6,12 +6,19 @@ list-menu {
   padding: 4rem;
   border-radius: 16px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
-    url('../../public/images/bg-menu.jpg');
+    url('../../public/images/heros/bg-menu-small.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
+  @include media-breakpoint-up(sm) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url('../../public/images/heros/bg-menu-medium.jpg');
+  }
+
   @include media-breakpoint-up(md) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)),
+    url('../../public/images/heros/bg-menu-large.jpg');
     flex-direction: row;
     gap: 8rem;
   }
