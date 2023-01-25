@@ -34,19 +34,19 @@ Scenario('showing liked restaurants', async ({ I }) => {
   assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
 });
 
-// Scenario('Unliking one restaurant', async ({ I }) => {
-//   I.seeElement('.restaurant-item');
+Scenario('Unliking one restaurant', async ({ I }) => {
+  I.seeElement('.restaurant-item');
 
-//   const firstRestaurant = locate(
-//     '.restaurant-item a.restaurant-item__detail',
-//   ).first();
+  const firstRestaurant = locate(
+    '.restaurant-item a.restaurant-item__detail',
+  ).first();
 
-//   I.click(firstRestaurant);
+  I.click(firstRestaurant);
 
-//   I.wait(3);
-//   I.seeElement('#likeButton');
-//   I.click('#likeButton');
+  I.wait(3);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
 
-//   I.amOnPage('/#/favorite');
-//   I.see('-- No restaurant data found --', '.restaurant-item__not__found');
-// });
+  I.amOnPage('/#/favorite');
+  I.see('-- No restaurant data found --', '.restaurant-item__not__found');
+});

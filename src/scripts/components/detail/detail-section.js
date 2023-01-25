@@ -33,8 +33,8 @@ class DetailSection extends HTMLElement {
           <div class="detail-section__info">
             <div class="img">
                 <picture>
-                  <source media="(max-width: 650px)" srcset="${CONFIG.BASE_IMAGE_URL}small/${pictureId}" class="detail-img">
-                  <source media="(max-width: 976px)" srcset="${CONFIG.BASE_IMAGE_URL}medium/${pictureId}" class="detail-img">
+                  <source media="(max-width: 650px)" data-srcset="${CONFIG.BASE_IMAGE_URL}small/${pictureId}" class="detail-img">
+                  <source media="(max-width: 976px)" data-srcset="${CONFIG.BASE_IMAGE_URL}medium/${pictureId}" class="detail-img">
                   <img
                     data-src="${CONFIG.BASE_IMAGE_URL}large/${pictureId}"
                     alt="${name} poster"
