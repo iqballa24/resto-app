@@ -56,7 +56,7 @@ module.exports = {
         },
       ],
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   devtool: false,
 };
